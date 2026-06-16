@@ -15,6 +15,20 @@ numpy = ">=1.24"
 tqdm = ">=4.65"
 tensorboard = ">=2.14"
 
+[tool.poetry.extras]
+# Optional extras: install with `poetry install --with eval` or `--with cuda`
+cuda = ["torch"]
+eval = ["pesq", "pystoi", "torchmetrics"]
+
+[tool.poetry.group.cuda.dependencies]
+# Placeholder for CUDA-specific pinned torch builds; CI/docs should provide exact install URL
+# Consumers should install the appropriate CUDA wheel via pip or use the 'cuda' extra
+
+[tool.poetry.group.eval.dependencies]
+pesq = "*"
+pystoi = "*"
+torchmetrics = ">=0.11"
+
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.4"
 

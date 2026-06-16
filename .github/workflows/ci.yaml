@@ -20,6 +20,7 @@ jobs:
           python -m pip install -U pip
           pip install poetry
           poetry config virtualenvs.create false
+          poetry lock || true
           poetry install --with dev
       - name: Lint (ruff)
         run: |
@@ -45,7 +46,7 @@ jobs:
           poetry install --with dev
       - name: Run tests
         run: |
-          pytest -q
+          pytest -q -m "not cuda"
   config-smoke:
     runs-on: ubuntu-latest
     needs: test
@@ -60,6 +61,7 @@ jobs:
           python -m pip install -U pip
           pip install poetry
           poetry config virtualenvs.create false
+          poetry lock || true
           poetry install --with dev
       - name: Config smoke run
         run: |

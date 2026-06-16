@@ -13,8 +13,14 @@ python -m venv .venv
 
 ```powershell
 pip install -U pip
+# Recommended: use Poetry to manage dependencies
+poetry install --with dev
+
+# CPU-only PyTorch example (alternative to poetry)
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-pip install -r requirements.txt  # if provided
+
+# Optional evaluation extras (PESQ/STOI) can be installed via:
+poetry install --with eval
 ```
 
 3) Run a Hydra-configured training dry-run
