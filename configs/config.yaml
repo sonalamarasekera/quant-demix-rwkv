@@ -1,0 +1,11 @@
+defaults:
+  - data: libri2mix
+  - stft: default
+  - model: rwkv_v7_separator
+  - training: default
+  - experiment: baseline_tf
+
+# Top-level composed config
+project_name: rwkv_ss
+paths:
+  run_dir: ./artifacts/runs/${hydra.job.name}

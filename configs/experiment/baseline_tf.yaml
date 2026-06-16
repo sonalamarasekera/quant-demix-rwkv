@@ -1,0 +1,23 @@
+# Baseline experiment reproducing prior defaults
+# Derive codec_dim externally or let trainer resolve it
+stft:
+  n_fft: 512
+  hop_length: 128
+
+data:
+  batch_size: 8
+  segment_seconds: 3.0
+  subset_frac: 0.01
+  subset_seed: 42
+
+model:
+  n_layer: 8
+  n_embd: 512
+  head_hidden: 256
+  n_groups: 2
+
+training:
+  max_epochs: 2
+  grad_clip: 5.0
+  optimizer:
+    lr: 1e-3

@@ -1,0 +1,9 @@
+train_csv: data/train.csv
+valid_csv: data/valid.csv
+batch_size: 8
+num_workers: 2
+sample_rate: 16000
+segment_seconds: 3.0
+drop_last: true
+subset_frac: 1.0
+subset_seed: 42

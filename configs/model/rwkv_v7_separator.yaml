@@ -1,0 +1,9 @@
+n_embd: 512
+codec_dim: null  # will be derived from stft.n_fft if left null
+n_layer: 8
+head_size_a: 64
+head_hidden: 256
+enforce_bf16: true
+n_groups: 2
+num_sources: 2
+head_mode: residual

@@ -1,0 +1,5 @@
+n_fft: 512
+hop_length: 128
+window: hann
+center: true
+pad_mode: reflect
