@@ -1,0 +1,26 @@
+# Dry run experiment for CI/dev: tiny model + tiny data
+stft:
+  n_fft: 256
+  hop_length: 64
+
+data:
+  train_csv: artifacts/dry_run/data.csv
+  valid_csv: artifacts/dry_run/data.csv
+  batch_size: 1
+  segment_seconds: 0.25
+  subset_frac: 1.0
+  subset_seed: 42
+
+model:
+  n_layer: 1
+  n_embd: 64
+  head_hidden: 32
+  n_groups: 2
+  head_size_a: 16
+  codec_dim: null
+
+training:
+  max_epochs: 1
+  grad_clip: 1.0
+  optimizer:
+    lr: 1e-3
