@@ -20,7 +20,7 @@ COPY pyproject.toml ./
 COPY poetry.lock ./
 COPY src ./src
 
-RUN poetry install --without-dev --no-interaction --no-ansi
+RUN poetry install --without dev --no-interaction --no-ansi
 
 COPY . ./
 
