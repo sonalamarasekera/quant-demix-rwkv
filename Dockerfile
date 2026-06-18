@@ -31,7 +31,7 @@ RUN if [ "${DEVICE_TYPE}" = "cpu" ]; then \
         fi
 
 # Install project deps via Poetry (torch already installed above)
-RUN poetry install --no-dev --no-interaction --no-ansi
+RUN poetry install --without dev --no-interaction --no-ansi
 
 COPY . ./
 
