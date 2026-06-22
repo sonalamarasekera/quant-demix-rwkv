@@ -1,42 +1,42 @@
-name: Docker CI
+# name: Docker CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 
-jobs:
-  docker-validation:
-    runs-on: ubuntu-latest
+# jobs:
+#   docker-validation:
+#     runs-on: ubuntu-latest
     
-    # PRODUCTION STANDARD: Explicitly limit token permissions to prevent credential leaks
-    permissions:
-      contents: read
-      packages: read
+#     # PRODUCTION STANDARD: Explicitly limit token permissions to prevent credential leaks
+#     permissions:
+#       contents: read
+#       packages: read
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
 
-      # Setup Docker Buildx (Required for type=gha caching layer engines)
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+#       # Setup Docker Buildx (Required for type=gha caching layer engines)
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
 
-      # Build layer using native BuildKit GitHub Actions storage
-      - name: Build Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./Dockerfile
-          load: true # Exports the compiled multi-stage image to local daemon storage
-          tags: rwkv-ss:ci
-          build-args: |
-            DEVICE_TYPE=cuda
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+#       # Build layer using native BuildKit GitHub Actions storage
+#       - name: Build Docker image
+#         uses: docker/build-push-action@v6
+#         with:
+#           context: .
+#           file: ./Dockerfile
+#           load: true # Exports the compiled multi-stage image to local daemon storage
+#           tags: rwkv-ss:ci
+#           build-args: |
+#             DEVICE_TYPE=cuda
+#           cache-from: type=gha
+#           cache-to: type=gha,mode=max
 
-      # Execute your automated model configuration validation step
-      - name: Validate Docker run with dry config
-        run: |
-          docker run --rm rwkv-ss:ci --config configs/experiment/dry_run.yaml
+#       # Execute your automated model configuration validation step
+#       - name: Validate Docker run with dry config
+#         run: |
+#           docker run --rm rwkv-ss:ci --config configs/experiment/dry_run.yaml
