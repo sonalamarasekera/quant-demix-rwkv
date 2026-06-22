@@ -67,7 +67,7 @@ COPY --from=builder /build/.venv /app/.venv
 
 FROM dev AS runner
 
-ENV PYTHONPATH="/app/src:$PYTHONPATH"
+ENV PYTHONPATH="/app/src"
 
 # Copy your actual codebase last. Source updates now rebuild in under 2 seconds!
 COPY src ./src
