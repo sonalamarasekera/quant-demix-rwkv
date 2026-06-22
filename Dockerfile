@@ -42,8 +42,6 @@ RUN if [ "${WITH_CUDA}" = "true" ]; then \
     else \
         poetry install --only main --no-root --no-ansi; \
     fi
-RUN poetry install --only main --no-root --no-ansi
-
 
 # ==========================================
 # STAGE 2: Interactive Development / Training Target
