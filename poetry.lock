@@ -1519,4 +1519,4 @@ eval = ["pesq", "pystoi", "torch", "torchaudio", "torchmetrics"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "abc224938a9e54e7d2f00768a418a62443edf31f343f67fa8586f858602c7ae6"
+content-hash = "f6157c15f56d5ef9ed1037a25150edb48ab5f81984983ee38649a7977cbb9912"
